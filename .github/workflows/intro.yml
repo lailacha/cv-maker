@@ -55,7 +55,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          build-dir: './build'
+          publish-dir: './build'
         timeout-minutes: 1
         
 
