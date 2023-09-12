@@ -9,17 +9,12 @@ jobs:
       - name: checkout 
         uses: actions/checkout@v4
       
-      - name: setup pnpm
-        uses: pnpm/action-setup@v2.4.0
-        with:
-          version: 8
-          run_install: false
+      - uses: actions/checkout@v3
+      - uses: oven-sh/setup-bun@v1
 
-      - name: install depencies
-        run: pnpm install
-
-      - name: build
-        run: pnpm run build
+      - run: bun install
+      - run: bun index.ts
+      - run: bun run build
       
 
           
