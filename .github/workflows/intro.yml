@@ -1,11 +1,25 @@
-name: Hello World
+name: Intro toCI
 
 on: push
 
 jobs:
-  hello-world:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: checkout 
+        uses: actions/checkout@v4
       
-      - run: echo Hello, world!
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2.4.0
+        with:
+          version: 8
+          run_install: false
+
+      - name: install depencies
+        run: pnpm install
+
+      - name: build
+        run: pnpm run build
+      
+
+          
