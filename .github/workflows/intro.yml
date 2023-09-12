@@ -47,29 +47,15 @@ jobs:
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
-
-      name: Build and Deploy to Netlify
-
-      - name: Build and Deploy to Netlify
-      on:
-        push:
-        pull_request:
-      jobs:
-        build:
-          runs-on: ubuntu-22.04
-          steps:
-            - uses: actions/checkout@v3
-
-            # ( Build to ./dist or other directory... )
-
-            - name: Deploy to Netlify
-              uses: nwtgck/actions-netlify@v2.0
-              with:
-                publish-dir: './dist'
-              env:
-                NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-                NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-              timeout-minutes: 1
+        
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './dist'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
         
 
 
