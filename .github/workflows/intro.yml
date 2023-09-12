@@ -39,6 +39,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install   
 
+      - name: Install pupeeteer
+        run: pnpm install puppeteer
+
+      - name: Run script snapshot.js
+        run: node snapshot.js 
+         
       # - name: Install Vercel CLI
       #   run: npm install --global vercel@latest
       # - name: Pull Vercel Environment Information
