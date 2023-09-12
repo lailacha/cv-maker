@@ -44,9 +44,9 @@ jobs:
      - name: sleep
         run: sleep 5
       
-    - name: Run tests with curl
-      run: | 
-            curl -sSf http://localhost:4173
+      - name: Run tests with curl
+        run: | 
+              curl -sSf http://localhost:4173
 
 
       
