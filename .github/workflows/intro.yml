@@ -37,6 +37,18 @@ jobs:
 
       - name: build
         run: pnpm run build
+
+      - name: Run the server
+        run: pnpm run preview &
+
+     - name: sleep
+        run: sleep 5
+      
+    - name: Run tests with curl
+      run: | 
+            curl -sSf http://localhost:4173
+
+
       
 
           
