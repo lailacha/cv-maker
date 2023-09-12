@@ -15,7 +15,7 @@ jobs:
           version: 8
           run_install: false
 
-      - run: echo Hello {{env.NAME}}
+      - run: echo Hello {{env.NAME}} 
 
       - name: install depencies
         run: pnpm install
