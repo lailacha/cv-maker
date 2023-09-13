@@ -27,7 +27,7 @@ jobs:
         run: pnpm run build
 
       - name: start server
-        run: pnpm run preview
+        run: pnpm run preview &
 
       - name: Run docker to run script
         run: docker run -i --init --cap-add=SYS_ADMIN -v ./gen:/home/pptruser/gen --network host ghcr.io/puppeteer/puppeteer:latest node -e "$(cat snapshot.js)" http://localhost:4173 ./gen &
